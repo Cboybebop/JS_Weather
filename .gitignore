@@ -1,0 +1,27 @@
+# .gitignore
+
+# Ignore local configuration files
+config.js
+
+# Ignore common system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor directories
+.vscode/
+.idea/
+
+# Dependencies
+/node_modules
+
+# Netlify build directory
+/dist
+/.netlify
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/

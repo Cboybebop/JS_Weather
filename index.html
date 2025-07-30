@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Weather Forecast</title>
+    <link rel="icon" id="favicon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="weather-app-container">
+        <div class="container py-5">
+            <header class="text-center mb-4">
+                <h1>Weather Forecast</h1>
+                <p class="lead">Your local weather, instantly.</p>
+            </header>
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8 col-lg-6">
+                    <div class="input-group">
+                        <input type="text" id="locationInput" class="form-control" placeholder="Enter a town or city...">
+                        <button class="btn btn-primary" id="searchButton"><i class="fas fa-search"></i> Search</button>
+                        <button class="btn btn-secondary" id="currentLocationButton" title="Use my current location"><i class="fas fa-map-marker-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <main id="weatherDisplay" class="text-center bg-light bg-opacity-25 p-4 rounded-3 shadow-sm mb-4">
+                <div id="loading" class="d-none">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div id="weatherContent" class="d-none">
+                    <h2 id="locationName" class="mb-0"></h2>
+                    <p id="weatherDescription" class="text-capitalize"></p>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img id="weatherIcon" src="" alt="Weather icon" class="me-3">
+                        <span id="temperature" class="display-3 fw-bold"></span>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm mt-3" id="toggleTempButton">Switch to Fahrenheit</button>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <button class="btn btn-info" id="tomorrowForecastBtn">Tomorrow</button>
+                        <button class="btn btn-info" id="weekForecastBtn">Next Week</button>
+                    </div>
+                </div>
+                <div id="error" class="d-none alert alert-danger">Location not found. Please try again.</div>
+            </main>
+            
+            <section id="forecastDisplay" class="mb-4"></section>
+
+
+            <section id="favouritesSection" class="text-center">
+                <h3 class="mb-3">Favourite Locations <button id="addFavouriteButton" class="btn btn-success btn-sm" title="Add current location to favourites"><i class="fas fa-star"></i> Add</button></h3>
+                <div id="favouritesList" class="d-flex flex-wrap justify-content-center gap-2">
+                    </div>
+            </section>
+        </div>
+        
+        <footer class="attribution">
+            Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
