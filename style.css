@@ -112,25 +112,25 @@ h1, h2, h3 {
 /* --- Dynamic Background Images --- */
 /* Default/Clear Sky */
 body.weather-clear {
-    background-image: url('https://images.unsplash.com/photo-1590102426319-c72115b5ef34?q=80&w=1974&auto=format&fit=crop');
+    background-image: url('assets/bg-clear.jpg');
 }
 
 /* Clouds */
 body.weather-clouds {
-    background-image: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1951&auto=format&fit=crop');
+    background-image: url('assets/bg-clouds.jpg');
 }
 
 /* Rain/Drizzle/Thunderstorm */
 body.weather-rain {
-    background-image: url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=1935&auto=format&fit=crop');
+    background-image: url('assets/bg-rain.jpg');
 }
 
 /* Snow */
 body.weather-snow {
-    background-image: url('https://images.unsplash.com/photo-1549472301-449e7019c6af?q=80&w=1964&auto=format&fit=crop');
+    background-image: url('assets/bg-snow.jpg');
 }
 
 /* Atmosphere (Mist, Fog, etc.) */
 body.weather-atmosphere {
-    background-image: url('https://images.unsplash.com/photo-1487621167305-5d248087c883?q=80&w=2070&auto=format&fit=crop');
+    background-image: url('assets/bg-atmosphere.jpg');
 }

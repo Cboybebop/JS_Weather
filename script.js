@@ -82,26 +82,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    /**
-     * Updates the background image based on the weather condition code.
+/**
+     * Updates the background image and favicon based on the weather condition code.
      * @param {object} condition - The condition object from the API response.
      */
     const updateVisuals = (condition) => {
         const code = condition.code;
         const body = document.body;
+        const favicon = document.getElementById('favicon');
         body.className = ''; // Reset classes
 
         // Mapping codes from https://www.weatherapi.com/docs/weather_conditions.json
-        if (code === 1000) { // Clear
+        if (code === 1000) { // Clear / Sunny
             body.classList.add('weather-clear');
-        } else if ([1003, 1006, 1009, 1030, 1135, 1147].includes(code)) { // Cloudy, Overcast, Mist, Fog
+            favicon.href = 'assets/icon-clear.png';
+        } else if (code === 1003) { // Partly cloudy
+            body.classList.add('weather-clouds');
+            favicon.href = 'assets/icon-clouds.png';
+        } else if ([1006, 1009].includes(code)) { // Cloudy, Overcast
+            body.classList.add('weather-clouds');
+            favicon.href = 'assets/icon-clouds.png';
+        } else if ([1030, 1135, 1147].includes(code)) { // Mist, Fog, Freezing fog
             body.classList.add('weather-atmosphere');
-        } else if ([1063, 1069, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1240, 1243, 1246, 1273, 1276].includes(code)) { // Rain & Thunder
+            favicon.href = 'assets/icon-atmosphere.png';
+        } else if ([1063, 1150, 1153, 1180, 1183, 1240, 1273].includes(code)) { // Patchy light rain, Drizzle, Light rain shower, Light rain, Light shower, Light thunder
             body.classList.add('weather-rain');
-        } else if ([1066, 1087, 1114, 1117, 1204, 1207, 1210, 1213, 1216, 1219, 1222, 1225, 1237, 1255, 1258, 1261, 1264, 1279, 1282].includes(code)) { // Snow & Sleet
+            favicon.href = 'assets/icon-rain.png';
+        } else if ([1069, 1168, 1171, 1186, 1189, 1192, 1195, 1243, 1246, 1276].includes(code)) { // Patchy sleet, Freezing drizzle, Heavy freezing drizzle, Moderate rain, Heavy rain, Heavy shower, Heavy thunder
+            body.classList.add('weather-rain');
+            favicon.href = 'assets/icon-rain.png';
+        } else if ([1066, 1114, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258, 1279, 1282].includes(code)) { // Patchy snow, Blowing snow, Light snow, Moderate snow, Heavy snow, Ice pellets, etc.
             body.classList.add('weather-snow');
-        } else {
-            body.classList.add('weather-clear'); // Default
+            favicon.href = 'assets/icon-snow.png';
+        } else { // Default
+            body.classList.add('weather-clear');
+            favicon.href = 'assets/icon-clear.png';
         }
     };
     
